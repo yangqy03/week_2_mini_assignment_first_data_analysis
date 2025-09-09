@@ -63,6 +63,8 @@ scikit-learn
 pip install -r requirements.txt
 ```
 
+Or install the required packages manually in your local environment.
+
 3) Run
 As a script:
 ```bash
