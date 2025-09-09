@@ -65,7 +65,7 @@ pip install -r requirements.txt
 
 Or install the required packages manually in your local environment.
 
-3) Run
+3) Run the script at the interactive window to see the graphs and plots
 As a script:
 ```bash
 coffee_analysis.py
