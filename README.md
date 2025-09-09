@@ -12,7 +12,7 @@ This dataset contains coffee shop transaction records, including details about s
 
 With attributes covering time of day, weekdays, months, coffee types, and revenue, this dataset provides a strong foundation for analyzing customer behavior, sales patterns, and business performance trends.
 
-Format: CSV (Coffe_sales.csv)
+Format: CSV (`Coffe_sales.csv`)
 
 | Column name | feature |
 | ------------- | ------------- |
