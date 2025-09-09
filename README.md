@@ -49,6 +49,7 @@ source ~/.week_2_mini_assign/bin/activate
 ```
 
 2) Install dependencies
+   
 Create `requirements.txt` and run:
 
 ```text
