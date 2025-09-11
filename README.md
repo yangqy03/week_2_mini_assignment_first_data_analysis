@@ -1,4 +1,4 @@
-## week_2_mini_assignment_first_data_analysis
+## Week_2_mini_assignment_first_data_analysis
 
 ## ☕️ Coffee Sales Analysis & Product Clustering
 
@@ -12,7 +12,7 @@ This dataset contains coffee shop transaction records, including details about s
 
 With attributes covering time of day, weekdays, months, coffee types, and revenue, this dataset provides a strong foundation for analyzing customer behavior, sales patterns, and business performance trends.
 
-Format: CSV (Coffe_sales.csv)
+Format: CSV (`Coffe_sales.csv`)
 
 | Column name | feature |
 | ------------- | ------------- |
@@ -49,6 +49,7 @@ source ~/.week_2_mini_assign/bin/activate
 ```
 
 2) Install dependencies
+   
 Create `requirements.txt` and run:
 
 ```text
@@ -62,7 +63,9 @@ scikit-learn
 pip install -r requirements.txt
 ```
 
-3) Run
+Or install the required packages manually in your local environment.
+
+3) Run the script at the interactive window to see the graphs and plots
 As a script:
 ```bash
 coffee_analysis.py
@@ -98,9 +101,13 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 
 # Visuals:
 - Top coffees by revenue: a bar chart ranking products.
+![Top coffees by revenue Revenue Chart](daily.png)
 - Transactions by hour of day: a bar chart using `hour_of_day`.
+![Transactions by hour of day](hour.png)
 - Daily revenue trend: a time series chart summing revenue by `Date`.
+![Daily revenue trend](daily.png)
 - Correlation heatmap: a quick look at relationships among numeric fields.
+![Correlation heatmap](correlation.png)
 
 # 4. Machine learning model: Product Clustering (K-Means)
 
@@ -123,14 +130,14 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 - Project them into 2D using PCA.
 
 - Plot the products colored by their cluster; annotate with product names.
+![PCA plot](cluster_pca_scatter_simple.png)
 
 ## Why K-Means here?
 
-- We want simple, explainable groups of products without labels.
-
+- We want simple, explainable groups of products without labels. No ground-truth labels exist. I don’t already know which drinks are “bestsellers,” “premium treats,” or “value staples.” Those are the insights you want, not inputs you can train on. Supervised models (e.g., classifiers) need labeled targets; you don’t have them here.
+- Goal is to discover structure, not predict a label. I want natural groupings that explain behavior (price level, volume, when they sell) to guide menu, promos, and stocking—not a prediction for each row.
 - Price–volume–revenue and daypart behavior naturally separate items into buckets that map to business actions (stocking, placement, promos).
-
-- K-Means is fast, repeatable, and works well with standardized numeric features.
+- K-Means is fast, repeatable, and works well with standardized numeric features. Actionable patterns emerge from similarity. Unsupervised clustering groups items that behave alike so you can apply cluster-level decisions (pricing bands, bundles, placement, staffing by daypart).
 
 ## Findings and Insights
 

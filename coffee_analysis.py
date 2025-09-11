@@ -7,7 +7,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 
 ## Load the dataset
-coffee = pd.read_csv("Coffe_sales.csv")
+coffee = pd.read_csv("data/Coffe_sales.csv")
 
 ## Inspect the data
 # display the first few rows of the dataset
@@ -77,6 +77,7 @@ by_coffee_rev.plot(kind="bar")
 plt.title("Top Coffees by Revenue")
 plt.xlabel("Coffee Name")
 plt.ylabel("Revenue")
+plt.savefig("by_coffee.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 ## hour_of_day transaction count plot
@@ -85,6 +86,7 @@ by_hour.plot(kind="bar")
 plt.title("Transactions by Hour of Day")
 plt.xlabel("Hour of Day")
 plt.ylabel("Number of Transactions")
+plt.savefig("hour.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 ## daily revenue time series plot
@@ -93,6 +95,7 @@ daily_revenue.plot()
 plt.title("Daily Revenue Over Time")
 plt.xlabel("Date")
 plt.ylabel("Revenue")
+plt.savefig("daily.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 ## correlation heatmap
@@ -104,6 +107,7 @@ plt.xticks(range(len(corr.columns)), corr.columns, rotation=90)
 plt.yticks(range(len(corr.columns)), corr.columns)
 plt.colorbar()
 plt.tight_layout()
+plt.savefig("correlation.png", dpi=300, bbox_inches="tight")
 plt.show()
 
 ## Machine learning model
