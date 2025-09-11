@@ -101,7 +101,7 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 
 # Visuals:
 - Top coffees by revenue: a bar chart ranking products.
-![Top coffees by revenue Revenue Chart](charts/daily.png)
+![Top coffees by revenue Revenue Chart](charts/by_coffee.png)
 - Transactions by hour of day: a bar chart using `hour_of_day`.
 ![Transactions by hour of day](charts/hour.png)
 - Daily revenue trend: a time series chart summing revenue by `Date`.
