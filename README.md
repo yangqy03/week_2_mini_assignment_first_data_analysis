@@ -101,13 +101,13 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 
 # Visuals:
 - Top coffees by revenue: a bar chart ranking products.
-![Top coffees by revenue Revenue Chart](daily.png)
+![Top coffees by revenue Revenue Chart](charts/daily.png)
 - Transactions by hour of day: a bar chart using `hour_of_day`.
-![Transactions by hour of day](hour.png)
+![Transactions by hour of day](charts/hour.png)
 - Daily revenue trend: a time series chart summing revenue by `Date`.
-![Daily revenue trend](daily.png)
+![Daily revenue trend](charts/daily.png)
 - Correlation heatmap: a quick look at relationships among numeric fields.
-![Correlation heatmap](correlation.png)
+![Correlation heatmap](charts/correlation.png)
 
 # 4. Machine learning model: Product Clustering (K-Means)
 
@@ -130,7 +130,7 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 - Project them into 2D using PCA.
 
 - Plot the products colored by their cluster; annotate with product names.
-![PCA plot](cluster_pca_scatter_simple.png)
+![PCA plot](charts/cluster_pca_scatter_simple.png)
 
 ## Why K-Means here?
 
