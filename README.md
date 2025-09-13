@@ -1,5 +1,3 @@
-# Week 2 mini assignment: first data analysis
-
 # ☕️ Coffee Sales Analysis & Product Clustering
 
 # Overview
@@ -63,7 +61,7 @@ Note: The analysis script merges `Date` + the clock portion of `Time` into a pro
 - Promo strategy: pick the right items to discount/bundle or to upsell from.
 
 # Set up instructions
-# Steps to get started
+## Steps to get started
 1) Clone this repository
 2) Open in VS Code
 Launch VS Code and open this project folder.
@@ -75,14 +73,14 @@ VS Code will:
 - Automatically install all dependencies from requirements.txt
 (this happens via the postCreateCommand inside the Dev Container configuration)
 
-# Running tests
+## Running tests
 This project contains unit tests (checking individual functions and data cleaning) and system tests (checking plots, KMeans clustering, and full pipeline behavior). Inside the Dev Container terminal, run:
 ```bash
 make test
 ```
 All test should be passed.
 
-# Testing Details
+## Testing Details
 The tests validate:
 - Data loading & cleaning
     - Date and time conversion
@@ -95,18 +93,18 @@ The tests validate:
 - System outputs
     - Expected chart files are saved to disk
 
-# Running the Analysis Script
+## Running the Analysis Script
 ```bash
 make run
 ```
-# Clean up the environment
+## Clean up the environment
 ```bash
 make clean
 ```
 
 # Data Analysis Process
 
-# 1. Load & Inspect
+## 1. Load & Inspect
 
 - Read `Coffe_sales.csv`.
 - Quickly check the first rows (shape, obvious issues).
@@ -115,7 +113,7 @@ make clean
 - Count missing values and duplicate rows.
 - List unique categories for `cash_type`, `coffee_name`, and `Time_of_Day`
 
-# 2. Clean & Combine Time
+## 2. Clean & Combine Time
 
 - Parse `Date` (YYYY-MM-DD) and `Time` (HH:MM:SS) into datetimes.
 - Strip the calendar from `Time` so only the clock portion remains.
@@ -124,13 +122,13 @@ make clean
 
 Combining the real calendar date with clock time gives a proper timestamp for time-aware analysis (and future hourly models).
 
-# 3. Exploratory data analysis (filter and grouping)
+## 3. Exploratory data analysis (filter and grouping)
 
 - By product `coffee_name`: compute transactions (row count) and revenue (sum of money), then sort to see top sellers.
 - By weekday: aggregate transactions and revenue and reindex to Mon - Sun to keep charts in calendar order.
 - By month: aggregate by Monthsort to preserve Jan - Dec order.
 
-# Visuals:
+## Visuals:
 - Top coffees by revenue: a bar chart ranking products.
 ![Top coffees by revenue Revenue Chart](charts/by_coffee.png)
 - Transactions by hour of day: a bar chart using `hour_of_day`.
@@ -140,7 +138,7 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 - Correlation heatmap: a quick look at relationships among numeric fields.
 ![Correlation heatmap](charts/correlation.png)
 
-# 4. Machine learning model: Product Clustering (K-Means)
+## 4. Machine learning model: Product Clustering (K-Means)
 
 - Per-product features:
 `avg_price`, `popularity`, `revenue`, `Time_of_Day shares` (fraction of sales in Morning/Afternoon/Night)
@@ -154,7 +152,7 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 - Cluster feature means
 - Top 5 coffees per cluster by revenue
 
-# 5. PCA Scatter plot
+## 5. PCA Scatter plot
 
 - Re-standardize the same features used for clustering.
 
@@ -172,23 +170,23 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 
 # Findings and Insights
 
-# Product mix
+## Product mix
 
 Top-earning drinks are Latte and Americano with Milk (clear leaders on the revenue bar chart). Cappuccino, Hot Chocolate, Cocoa follow; Espresso is lowest among the listed items. 
 
-# When customers buy
+## When customers buy
 
 Traffic by hour peaks in the late morning (around 9–11) and has another lift mid/late afternoon; evenings taper. 
 
-# Revenue over time
+## Revenue over time
 
 Daily revenue is volatile with recurring spikes; no obvious long-term decline is visible in the plotted period. Use rolling averages for staffing and target setting. 
 
-# Correlations
+## Correlations
 
 Numeric features show weak direct correlations (e.g., hour vs. spend), implying patterns are more categorical/time-bucket driven than linear. 
 
-# K-Means clustering (chosen k=3)
+## K-Means clustering (chosen k=3)
 
 Model selection: Elbow bends around 3–4; best silhouette at k=3. Good separation with a compact number of clusters. 
 
