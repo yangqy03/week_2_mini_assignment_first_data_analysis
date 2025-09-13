@@ -4,7 +4,23 @@
 
 # Overview
 
-This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https://www.kaggle.com/datasets/navjotkaushal/coffee-sales-dataset/data), runs quick exploratory data analysis (top drinks, weekday/hour trends, daily revenue), and clusters products with K-Means using: avg_price, popularity (transaction count), revenue, and Time_of_Day shares (Morning/Afternoon/Night).
+This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https://www.kaggle.com/datasets/navjotkaushal/coffee-sales-dataset/data), runs quick exploratory data analysis (top drinks, weekday/hour trends, daily revenue), and clusters products with K-Means using: avg_price, popularity (transaction count), revenue, and Time_of_Day shares (Morning/Afternoon/Night). 
+
+## Key features:
+- Data cleaning and preprocessing
+- Grouping and revenue analysis by coffee name, weekday, month, and hour
+- Visualizations (revenue by product, daily revenue trends, correlations)
+- Means clustering of coffee products with PCA visualization
+- Full test coverage (unit and system tests) ensuring reproducibility
+
+
+# Project Structure
+- coffee_analysis.py         # Main analysis and machine learning script
+- requirements.txt           # Python dependencies
+- test_coffee_analysis.py    # Unit and system tests (pytest)
+- .devcontainer              # VS Code Dev Container config
+- Makefile                   # Shortcuts for installing deps and running tests
+- README.md                  # This documentation
 
 # About the Dataset
 
@@ -28,7 +44,7 @@ Format: CSV (`Coffe_sales.csv`)
 | `Date` | Date of transaction (YYYY-MM-DD) |
 | `Time` | Exact time (HH:MM:SS) |
 
-Note: The analysis script merges Date + the clock portion of Time into a proper DateTime for time-aware charts and features.
+Note: The analysis script merges `Date` + the clock portion of `Time` into a proper `DateTime` for time-aware charts and features.
 
 # Why this analysis? (Objectives)
 
@@ -40,40 +56,49 @@ Note: The analysis script merges Date + the clock portion of Time into a proper 
 
 - Promo strategy: pick the right items to discount/bundle or to upsell from.
 
-## Quickstart
+## Set up instructions
+# Steps to get started
+1) Clone this repository
+2) Open in VS Code
+Launch VS Code and open this project folder.
+3) Reopen in Dev Container
+When prompted, click “Reopen in Container”.
 
-1) Create a Python environment
+VS Code will: 
+- Build the container described in .devcontainer/devcontainer.json
+- Automatically install all dependencies from requirements.txt
+(this happens via the postCreateCommand inside the Dev Container configuration)
+
+# Running tests
+This project contains unit tests (checking individual functions and data cleaning) and system tests (checking plots, KMeans clustering, and full pipeline behavior). Inside the Dev Container terminal, run:
 ```bash
-python3 -m venv ~/.week_2_mini_assign
-source ~/.week_2_mini_assign/bin/activate
+make test
 ```
+All test should be passed.
 
-2) Install dependencies
-   
-Create `requirements.txt` and run:
+# Testing Details
+The tests validate:
+- Data loading & cleaning
+    - Date and time conversion
+    - Required columns and no missing core values
+- Grouping & aggregation
+    - Correct revenue and transaction counts
+    - Weekday order from Monday to Sunday
+- Machine learning model
+    - KMeans cluster assignments are valid and a fitted kmeans object exists on the module with n_clusters in a valid range.
+- System outputs
+    - Expected chart files are saved to disk
 
-```text
-pandas
-numpy
-matplotlib
-scikit-learn
-```
-
+# Running the Analysis Script
 ```bash
-pip install -r requirements.txt
+make run
 ```
-
-Or install the required packages manually in your local environment.
-
-3) Run the script at the interactive window to see the graphs and plots
-As a script:
+# Clean up the environment
 ```bash
-coffee_analysis.py
+make clean
 ```
-Or run the notebook cells in order.
 
-
-## Process
+## Data Analysis Process
 
 # 1. Load & Inspect
 

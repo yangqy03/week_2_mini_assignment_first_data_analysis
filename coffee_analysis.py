@@ -78,7 +78,7 @@ plt.title("Top Coffees by Revenue")
 plt.xlabel("Coffee Name")
 plt.ylabel("Revenue")
 plt.savefig("by_coffee.png", dpi=300, bbox_inches="tight")
-plt.show()
+plt.close()
 
 ## hour_of_day transaction count plot
 by_hour = coffee_new.groupby("hour_of_day").size()
@@ -87,7 +87,7 @@ plt.title("Transactions by Hour of Day")
 plt.xlabel("Hour of Day")
 plt.ylabel("Number of Transactions")
 plt.savefig("hour.png", dpi=300, bbox_inches="tight")
-plt.show()
+plt.close()
 
 ## daily revenue time series plot
 daily_revenue = coffee_new.groupby("Date")["money"].sum()
@@ -96,7 +96,7 @@ plt.title("Daily Revenue Over Time")
 plt.xlabel("Date")
 plt.ylabel("Revenue")
 plt.savefig("daily.png", dpi=300, bbox_inches="tight")
-plt.show()
+plt.close()
 
 ## correlation heatmap
 num = coffee_new.select_dtypes(include=[np.number]).copy()
@@ -108,7 +108,7 @@ plt.yticks(range(len(corr.columns)), corr.columns)
 plt.colorbar()
 plt.tight_layout()
 plt.savefig("correlation.png", dpi=300, bbox_inches="tight")
-plt.show()
+plt.close()
 
 ## Machine learning model
 # Product Clustering (KMeans)
@@ -230,4 +230,4 @@ plt.ylabel("PC2")
 plt.legend(title="Clusters")
 plt.tight_layout()
 plt.savefig("cluster_pca_scatter_simple.png", dpi=200, bbox_inches="tight")
-plt.show()
+plt.close()
