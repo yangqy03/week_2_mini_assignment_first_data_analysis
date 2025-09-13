@@ -1,6 +1,6 @@
-## Week 2 mini assignment: first data analysis
+# Week 2 mini assignment: first data analysis
 
-## ☕️ Coffee Sales Analysis & Product Clustering
+# ☕️ Coffee Sales Analysis & Product Clustering
 
 # Overview
 
@@ -62,7 +62,7 @@ Note: The analysis script merges `Date` + the clock portion of `Time` into a pro
 
 - Promo strategy: pick the right items to discount/bundle or to upsell from.
 
-## Set up instructions
+# Set up instructions
 # Steps to get started
 1) Clone this repository
 2) Open in VS Code
@@ -104,7 +104,7 @@ make run
 make clean
 ```
 
-## Data Analysis Process
+# Data Analysis Process
 
 # 1. Load & Inspect
 
@@ -170,7 +170,7 @@ Combining the real calendar date with clock time gives a proper timestamp for ti
 - Price–volume–revenue and daypart behavior naturally separate items into buckets that map to business actions (stocking, placement, promos).
 - K-Means is fast, repeatable, and works well with standardized numeric features. Actionable patterns emerge from similarity. Unsupervised clustering groups items that behave alike so you can apply cluster-level decisions (pricing bands, bundles, placement, staffing by daypart).
 
-## Findings and Insights
+# Findings and Insights
 
 # Product mix
 
@@ -202,7 +202,7 @@ Cluster profiles (means):
 
 3. Cluster 2: “Value daytime staples”: lowest price, day-leaning (Morning/Afternoon ≈0.41/0.38). Americano, Cortado, Espresso. 
 
-## What this means (business implications)
+# What this means (business implications)
 
 1. Menu & merchandising
 
