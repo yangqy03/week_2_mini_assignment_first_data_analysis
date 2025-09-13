@@ -15,18 +15,18 @@ This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https:
 
 
 # Project Structure
-- coffee_analysis.py
-    Main analysis and machine learning script
-- requirements.txt           
-    Python dependencies
-- test_coffee_analysis.py    
-    Unit and system tests (pytest)
-- .devcontainer              
-    VS Code Dev Container config
-- Makefile                   
-    Shortcuts for installing deps and running tests
-- README.md                  
-    This documentation
+- `coffee_analysis.py`
+Main analysis and machine learning script
+- `requirements.txt`           
+Python dependencies
+- `test_coffee_analysis.py`  
+Unit and system tests (pytest)
+- `.devcontainer`              
+VS Code Dev Container config
+- `Makefile`                   
+Shortcuts for installing deps and running tests
+- `README.md`                  
+This documentation
 
 # About the Dataset
 
