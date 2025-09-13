@@ -16,7 +16,7 @@ This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https:
 
 # Project Structure
 - coffee_analysis.py
-    Main analysis and machine learning script)
+    Main analysis and machine learning script
 - requirements.txt           
     Python dependencies
 - test_coffee_analysis.py    
