@@ -69,9 +69,9 @@ Launch VS Code and open this project folder.
 When prompted, click “Reopen in Container”.
 
 VS Code will: 
-- Build the container described in .devcontainer/devcontainer.json
-- Automatically install all dependencies from requirements.txt
-(this happens via the postCreateCommand inside the Dev Container configuration)
+- Build the container described in `.devcontainer/devcontainer.json`
+- Automatically install all dependencies from `requirements.txt`
+(this happens via the `postCreateCommand` inside the Dev Container configuration)
 
 ## Running tests
 This project contains unit tests (checking individual functions and data cleaning) and system tests (checking plots, KMeans clustering, and full pipeline behavior). Inside the Dev Container terminal, run:
