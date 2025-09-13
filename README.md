@@ -1,4 +1,4 @@
-## Week_2_mini_assignment_first_data_analysis
+## Week 2 mini assignment: first data analysis
 
 ## ☕️ Coffee Sales Analysis & Product Clustering
 
