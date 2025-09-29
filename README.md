@@ -1,5 +1,7 @@
 # ☕️ Coffee Sales Analysis & Product Clustering
 
+[![Coffee Sales Project for IDS706](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml/badge.svg)](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml)
+
 # Overview
 
 This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https://www.kaggle.com/datasets/navjotkaushal/coffee-sales-dataset/data), runs quick exploratory data analysis (top drinks, weekday/hour trends, daily revenue), and clusters products with K-Means using: avg_price, popularity (transaction count), revenue, and Time_of_Day shares (Morning/Afternoon/Night). 
