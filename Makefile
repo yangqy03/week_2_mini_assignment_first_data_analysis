@@ -13,6 +13,12 @@ install:
 run:
 	python $(SCRIPT)
 
+format:
+	black $(SCRIPT) $(TESTS)
+
+lint:
+	flake8 --ignore=E203,E266,E501,W503 $(SCRIPT)
+
 # Run tests
 test:
 	pytest -q $(TESTS)
@@ -23,4 +29,4 @@ clean:
 	rm -f by_coffee.png hour.png daily.png correlation.png cluster_pca_scatter_simple.png
 
 # Do everything: install deps and run tests
-all: install test
+all: install format lint test

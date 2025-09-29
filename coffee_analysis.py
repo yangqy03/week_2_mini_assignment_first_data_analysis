@@ -68,12 +68,12 @@ by_month = coffee_new.groupby("Monthsort").agg(
 by_month
 
 # visualization of revenue by coffee type
-by_coffee_rev = (
+by_coffee_revenue = (
     coffee_new.groupby("coffee_name")["money"].sum().sort_values(ascending=False)
 )
-by_coffee_rev
+by_coffee_revenue
 
-by_coffee_rev.plot(kind="bar")
+by_coffee_revenue.plot(kind="bar")
 plt.title("Top Coffees by Revenue")
 plt.xlabel("Coffee Name")
 plt.ylabel("Revenue")
@@ -90,8 +90,8 @@ plt.savefig("hour.png", dpi=300, bbox_inches="tight")
 plt.close()
 
 # daily revenue time series plot
-daily_revenue = coffee_new.groupby("Date")["money"].sum()
-daily_revenue.plot()
+daily_rev = coffee_new.groupby("Date")["money"].sum()
+daily_rev.plot()
 plt.title("Daily Revenue Over Time")
 plt.xlabel("Date")
 plt.ylabel("Revenue")
