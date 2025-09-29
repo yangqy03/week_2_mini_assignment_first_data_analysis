@@ -8,6 +8,7 @@ TESTS  := test_coffee_analysis.py
 # Install dependencies into the current Python environment (required if do not use Dev Containers)
 install:
 	pip install --upgrade pip && pip install -r $(REQ)
+	pip install black flake8 pytest pytest-cov
 
 # Run the analysis script (saves plot PNGs)
 run:
