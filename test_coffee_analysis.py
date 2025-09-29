@@ -9,9 +9,9 @@ import pytest
 MODULE_NAME = "coffee_analysis"
 
 
-# -----------------------------
 # Fixtures: temp repo & import
-# -----------------------------
+
+
 @pytest.fixture(scope="session")
 def tmp_repo(tmp_path_factory):
     """
@@ -137,9 +137,9 @@ def coffee_module(tmp_repo, monkeypatch):
     return mod
 
 
-# -----------------------------------------
 # Unit tests: loading & preprocessing
-# -----------------------------------------
+
+
 def test_data_loading_and_datetime(coffee_module):
     """
     Verify data loading and core datetime preprocessing.
@@ -184,9 +184,9 @@ def test_no_missing_core_columns_after_cleaning(coffee_module):
     assert cn["coffee_name"].notna().all()
 
 
-# -----------------------------------------
 # Unit tests: grouping & aggregation
-# -----------------------------------------
+
+
 def test_group_by_coffee_matches_manual_sum(coffee_module):
     """
     Cross-check grouped results against a manual recomputation.
@@ -221,9 +221,9 @@ def test_weekday_index_order_is_mon_to_sun(coffee_module):
     assert list(by_weekday.index) == ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
 
 
-# -----------------------------------------
 # Unit tests: explicit filtering checks
-# -----------------------------------------
+
+
 def test_filter_by_coffee_name_matches_grouped_revenue(coffee_module):
     """
     Filtering test 1:
@@ -263,9 +263,9 @@ def test_filter_by_weekday_counts_are_correct(coffee_module):
         assert filtered_count == grouped_tx, f"Weekday count mismatch for {wd}"
 
 
-# -----------------------------------------
 # System & ML behavior tests
-# -----------------------------------------
+
+
 def test_kmeans_cluster_assignments_exist_and_are_valid(coffee_module):
     """
     End-to-end/ML behavior:

@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+from sklearn.decomposition import PCA
 
-## Load the dataset
+# Load the dataset
 coffee = pd.read_csv("data/Coffe_sales.csv")
 
-## Inspect the data
+# Inspect the data
 # display the first few rows of the dataset
 coffee.head()
 # understand the structure and data types of the dataset
@@ -24,15 +25,14 @@ coffee.duplicated().sum()
 coffee["cash_type"].unique()
 # Check for unique values in 'coffee_name' column
 coffee["coffee_name"].unique()
-## Check for unique values in 'Time_of_Day' column
+# Check for unique values in 'Time_of_Day' column
 coffee["Time_of_Day"].unique()
 
-## Data Cleaning
+# Data Cleaning
 # change the data types of 'Date' and 'Time' columns to datetime
 coffee["Date"] = pd.to_datetime(coffee["Date"], errors="coerce")
-coffee["Time"] = pd.to_datetime(
-    coffee["Time"], errors="coerce"
-)  # has wrong date, but correct clock time
+coffee["Time"] = pd.to_datetime(coffee["Time"], errors="coerce")
+# has wrong date, but correct clock time
 
 # Extract just the time-of-day as a timedelta, then add to the real Date
 time_of_day = coffee["Time"] - coffee["Time"].dt.normalize()
@@ -44,7 +44,7 @@ coffee_new = coffee.drop("Time", axis=1)
 coffee_new.info()
 coffee_new.sample(n=5)
 
-## Basic filtering and grouping
+# Basic filtering and grouping
 # By coffee type revenue and transactions number
 by_coffee = coffee_new.groupby("coffee_name").agg(
     transactions=("coffee_name", "size"), revenue=("money", "sum")
@@ -67,7 +67,7 @@ by_month = coffee_new.groupby("Monthsort").agg(
 )
 by_month
 
-## visualization of revenue by coffee type
+# visualization of revenue by coffee type
 by_coffee_rev = (
     coffee_new.groupby("coffee_name")["money"].sum().sort_values(ascending=False)
 )
@@ -80,7 +80,7 @@ plt.ylabel("Revenue")
 plt.savefig("by_coffee.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-## hour_of_day transaction count plot
+# hour_of_day transaction count plot
 by_hour = coffee_new.groupby("hour_of_day").size()
 by_hour.plot(kind="bar")
 plt.title("Transactions by Hour of Day")
@@ -89,7 +89,7 @@ plt.ylabel("Number of Transactions")
 plt.savefig("hour.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-## daily revenue time series plot
+# daily revenue time series plot
 daily_revenue = coffee_new.groupby("Date")["money"].sum()
 daily_revenue.plot()
 plt.title("Daily Revenue Over Time")
@@ -98,7 +98,7 @@ plt.ylabel("Revenue")
 plt.savefig("daily.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-## correlation heatmap
+# correlation heatmap
 num = coffee_new.select_dtypes(include=[np.number]).copy()
 corr = num.corr(method="pearson")
 plt.imshow(corr, interpolation="nearest")
@@ -110,7 +110,7 @@ plt.tight_layout()
 plt.savefig("correlation.png", dpi=300, bbox_inches="tight")
 plt.close()
 
-## Machine learning model
+# Machine learning model
 # Product Clustering (KMeans)
 # Goal: cluster coffee products by behavior to inform menu layout/promos.
 # Features per coffee:
@@ -199,9 +199,7 @@ for c in sorted(per_coffee["cluster"].unique()):
     print(f"\nCluster {c}:")
     print(top.to_string(index=False))
 
-## PCA scatter of items colored by cluster
-from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
+# PCA scatter of items colored by cluster
 
 # Use the same features you clustered on
 share_cols = [c for c in per_coffee.columns if c.endswith("_share")]
