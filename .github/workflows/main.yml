@@ -17,6 +17,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt pytest pytest-cov flake8
     - name: Lint with flake8
-      run: flake8 coffee_analysis.py
+      run: flake8 coffee_analysis.py --max-line-length=88 --extend-ignore=E203,W503
     - name: Run tests
       run: pytest --cov=coffee_analysis
