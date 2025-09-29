@@ -6,6 +6,12 @@
 
 This project loads a Point of sale dataset `Coffe_sales.csv` from Kaggle (https://www.kaggle.com/datasets/navjotkaushal/coffee-sales-dataset/data), runs quick exploratory data analysis (top drinks, weekday/hour trends, daily revenue), and clusters products with K-Means using: avg_price, popularity (transaction count), revenue, and Time_of_Day shares (Morning/Afternoon/Night). 
 
+# Executive Summary
+
+This analysis of a coffee shop’s point-of-sale dataset identifies key drivers of sales performance, customer behavior, and product profitability. Through exploratory analysis and K-Means clustering, products were segmented into three strategic categories based on price, popularity, and time-of-day sales share: bestseller workhorses, premium evening treats, and value daytime staples.
+
+The findings reveal that milk-based beverages dominate revenue, late mornings and afternoons are the most profitable time windows, and clustering insights can directly inform menu design, inventory allocation, and promotional strategy. By aligning business decisions with data-driven behavioral segments, the cafe shop can enhance operational efficiency, improve product positioning, and increase total sales margin.
+
 ## Key features:
 - Data cleaning and preprocessing
 - Grouping and revenue analysis by coffee name, weekday, month, and hour
@@ -185,7 +191,7 @@ Top-earning drinks are Latte and Americano with Milk (clear leaders on the reven
 
 ## When customers buy
 
-Traffic by hour peaks in the late morning (around 9–11) and has another lift mid/late afternoon; evenings taper. 
+Traffic by hour peaks in the late morning (around 9–11) and has another lift mid/late afternoon; transaction number tends to decrease in evenings . 
 
 ## Revenue over time
 
@@ -213,31 +219,34 @@ Cluster profiles (means):
 
 1. Menu & merchandising
 
-Put Cluster 0 front-and-center on the menu (high visibility, minimal discounting).
+Put Cluster 0 as front-and-center on the menu (high visibility, minimal discounting).
 
-Feature Cluster 1 as premium/night items (dessert pairings, seasonal creatives).
+Feature Cluster 1 as premium/night items with distinctive visuals and evening promotions (e.g., dessert pairings or specialty cups).
 
-Use Cluster 2 as value anchors with explicit upsells (“+ milk → Latte”).
+Use Cluster 2 as value anchors: use them for bundle promotions (e.g., Coffee + Pastry Morning Combo) or upsells (“+ Milk → Latte”).
 
 2. Inventory & purchasing
 
-Milk/espresso supplies should be protected for Cluster 0 to avoid stockouts.
+Prioritize milk and espresso supplies for Cluster 0 items to ensure reliability during high-demand hours.
 
-Cocoa/whipped toppings and evening disposables align with Cluster 1.
+Stock cocoa, toppings, and dessert-related materials strategically for evening-heavy Cluster 1 items.
 
-Beans & small-format cups align with Cluster 2 (morning/afternoon rush).
-(Base this on the daypart shares in each cluster.) 
+Maintain ample beans and takeaway materials to support Cluster 2’s daytime rush volume.
+
+Insight: Demand forecasting and procurement can be optimized per cluster to minimize waste and stockouts.
 
 3. Staffing & scheduling
 
-Staff heavier late morning and mid/late afternoon (traffic peaks). 
+Peak staffing should align with morning (9–11 AM) and afternoon (3–5 PM) demand spikes.
 
-For evenings, ensure at least one barista proficient with premium foam/latte art for Cluster-1 orders.
+Evening shifts should include workers skilled in crafting foam-heavy or aesthetic drinks (Cluster 1).
+
+Future insights: Use hourly sales data to build staffing models tied to transaction count and complexity per cluster.
 
 4. Promotions & pricing
 
-Cluster 2 (value daytime): run morning bundles (coffee + pastry) to drive traffic; use them as upsell feeders to Cluster-0 lattes.
+Cluster 0: Inelastic demand allows for small price adjustments (+3–5%) with minimal customer drop-off.
 
-Cluster 1 (evening): push dessert combos; limited-time flavors.
+Cluster 1: Promote through premium bundles (e.g., Cappuccino + Dessert), seasonal flavors, or digital loyalty rewards.
 
-Test small price increases (+3–5%) on Cluster 0 (inelastic high-demand items). Monitor attach rate and wait time.
+Cluster 2: Drive volume with morning discounts or “value combo” deals to increase traffic and upsell potential.
