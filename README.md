@@ -99,6 +99,13 @@ The tests validate:
 ```bash
 make run
 ```
+
+## Run everything （Recommanded for CI pipeline）
+To install dependencies, auto-format code with Black, lint (checks code style with flake8), and run tests all at once, use:
+```bash
+make all
+```
+
 ## Clean up the environment
 ```bash
 make clean
