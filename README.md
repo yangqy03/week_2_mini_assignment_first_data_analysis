@@ -1,6 +1,6 @@
 # ☕️ Coffee Sales Analysis & Product Clustering
 
-[![Coffee Sales Project for IDS706](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml/badge.svg)](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml)
+[![Coffee Sales Project for IDS706](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/yangqy03/week_2_mini_assignment_first_data_analysis/actions/workflows/main.yml)
 
 # Overview
 
